@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TaskFlow Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>TaskFlow 🚀</h2>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="board.html">
+            📋 Board
+        </a>
+
+        <a href="users.html">
+            👥 Team
+        </a>
+
+        <a href="#">
+            ⚙ Settings
+        </a>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1 class="page-title">
+            Project Dashboard
+        </h1>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <h3 id="totalProjects">
+                    0
+                </h3>
+
+                <p>
+                    Total Projects
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3 id="totalTasks">
+                    0
+                </h3>
+
+                <p>
+                    Total Tasks
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3 id="pendingTasks">
+                    0
+                </h3>
+
+                <p>
+                    Pending Tasks
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3 id="completedTasks">
+                    0
+                </h3>
+
+                <p>
+                    Completed Tasks
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="project-form">
+
+            <h2>
+                Create New Project
+            </h2>
+
+            <input
+                type="text"
+                id="projectTitle"
+                placeholder="Project Title"
+            >
+
+            <textarea
+                id="projectDescription"
+                placeholder="Project Description"
+            ></textarea>
+
+            <button onclick="createProject()">
+                Create Project
+            </button>
+
+        </div>
+
+        <div id="projectsContainer">
+
+        </div>
+
+    </div>
+
+    <script src="./js/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TaskFlow Board</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>TaskFlow 🚀</h2>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="board.html">
+            📋 Board
+        </a>
+
+        <a href="users.html">
+            👥 Team
+        </a>
+
+        <a href="#">
+            ⚙ Settings
+        </a>
+
+    </div>
+
+    <div class="main-content">
+
+        <div class="board-header">
+
+            <h1>
+                Kanban Board
+            </h1>
+
+            <div class="task-counter">
+
+                Total Tasks:
+                <span id="taskCount">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="searchTask"
+                placeholder="🔍 Search Tasks..."
+                onkeyup="loadTasks()"
+            >
+
+            <select
+                id="priorityFilter"
+                onchange="loadTasks()"
+            >
+
+                <option value="">
+                    All Priorities
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="task-form">
+
+            <h2>
+                Create New Task
+            </h2>
+
+            <input
+                type="text"
+                id="taskTitle"
+                placeholder="Task Title"
+            >
+
+            <textarea
+                id="taskDescription"
+                placeholder="Task Description"
+            ></textarea>
+
+            <input
+                type="text"
+                id="assignedTo"
+                placeholder="Assigned User"
+            >
+
+            <select id="priority">
+
+                <option value="Low">
+                    Low Priority
+                </option>
+
+                <option value="Medium">
+                    Medium Priority
+                </option>
+
+                <option value="High">
+                    High Priority
+                </option>
+
+            </select>
+            <select id="assignedTo">
+
+    <option value="">
+        Select Team Member
+    </option>
+
+</select>
+
+            <input
+                type="date"
+                id="dueDate"
+            >
+
+            <button onclick="createTask()">
+                Create Task
+            </button>
+
+        </div>
+        <div
+    class="task-card"
+    draggable="true"
+    ondragstart="drag(event)"
+    data-id="${task.id}"
+>
+
+        <div class="board">
+
+            <div class="column">
+
+                <h2>
+                    📋 TODO
+                </h2>
+
+                <div
+    id="todo"
+    ondrop="dropTask(event,'todo')"
+    ondragover="allowDrop(event)"
+></div>
+
+            </div>
+
+            <div class="column">
+
+                <h2>
+                    ⚡ IN PROGRESS
+                </h2>
+
+                <div
+    id="progress"
+    ondrop="dropTask(event,'progress')"
+    ondragover="allowDrop(event)"
+></div>
+
+            </div>
+
+            <div class="column">
+
+                <h2>
+                    ✅ DONE
+                </h2>
+
+                <div
+    id="done"
+    ondrop="dropTask(event,'done')"
+    ondragover="allowDrop(event)"
+></div> 
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+
+    <script src="./js/board.js"></script>
+
+</body>
+
+</html>

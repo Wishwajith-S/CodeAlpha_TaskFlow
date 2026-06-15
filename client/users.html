@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TaskFlow Team</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>TaskFlow 🚀</h2>
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+        <a href="board.html">
+            📋 Board
+        </a>
+
+        <a href="users.html">
+            👥 Team
+        </a>
+
+        <a href="#">
+            ⚙ Settings
+        </a>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1 class="page-title">
+            Team Management
+        </h1>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <h3 id="totalMembers">
+                    0
+                </h3>
+
+                <p>Total Members</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3 id="assignedTasks">
+                    0
+                </h3>
+
+                <p>Assigned Tasks</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3 id="completedTasks">
+                    0
+                </h3>
+
+                <p>Completed Tasks</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3 id="pendingTasks">
+                    0
+                </h3>
+
+                <p>Pending Tasks</p>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <h2>
+                Add Team Member
+            </h2>
+
+            <br>
+
+            <input
+                type="text"
+                id="memberName"
+                placeholder="Member Name"
+            >
+
+            <br><br>
+
+            <input
+                type="text"
+                id="memberRole"
+                placeholder="Role"
+            >
+
+            <br><br>
+
+            <button onclick="addMember()">
+                Add Member
+            </button>
+
+        </div>
+
+        <div
+            id="teamContainer"
+            class="team-grid"
+        >
+
+        </div>
+
+    </div>
+
+    <script src="./js/users.js"></script>
+
+</body>
+
+</html>
