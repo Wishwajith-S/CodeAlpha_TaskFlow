@@ -43,9 +43,8 @@ async function loadTasks() {
     await fetch(
         "http://localhost:5000/api/tasks"
     );
-    socket.emit(
-    "taskChanged"
-);
+    
+;
 
     const tasks =
     await response.json();
@@ -370,7 +369,7 @@ async function deleteTask(id){
 
     const confirmDelete =
     confirm(
-        "Delete this task?"
+        "Delete this task?" 
     );
 
     if(!confirmDelete){

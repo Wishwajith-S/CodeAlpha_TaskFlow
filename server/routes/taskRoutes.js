@@ -34,35 +34,29 @@ function saveTasks(tasks){
 
 }
 
-
 // GET ALL TASKS
 
 router.get("/", (req, res) => {
 
-    const tasks =
-    getTasks();
+    const tasks = getTasks();
 
     res.json(tasks);
 
 });
 
-
 // CREATE TASK
 
 router.post("/", (req, res) => {
 
-    const tasks =
-    getTasks();
+    const tasks = getTasks();
 
     const {
-
         title,
         description,
         assignedTo,
         priority,
         dueDate,
         projectId
-
     } = req.body;
 
     const task = {
@@ -83,6 +77,8 @@ router.post("/", (req, res) => {
 
         status: "todo",
 
+        comments: [],
+
         createdAt:
         new Date().toLocaleString()
 
@@ -96,10 +92,11 @@ router.post("/", (req, res) => {
 
 });
 
+// EDIT TASK
+
 router.put("/edit/:id", (req, res) => {
 
-    const tasks =
-    getTasks();
+    const tasks = getTasks();
 
     const task =
     tasks.find(
@@ -133,15 +130,13 @@ router.put("/edit/:id", (req, res) => {
 
     res.json(task);
 
-}); 
-
+});
 
 // MOVE TASK
 
 router.put("/:id", (req, res) => {
 
-    const tasks =
-    getTasks();
+    const tasks = getTasks();
 
     const task =
     tasks.find(
@@ -161,54 +156,72 @@ router.put("/:id", (req, res) => {
 
     saveTasks(tasks);
 
+    console.log(
+        "Task moved:",
+        task.id,
+        task.status
+    );
+
     res.json(task);
 
 });
 
+// ADD COMMENT
 
-// EDIT TASK
+router.post("/:id/comment", (req, res) => {
 
+    const tasks = getTasks();
 
-async function dropTask(
-    event,
-    status
-){
-
-    event.preventDefault();
-
-    const taskId =
-    event.dataTransfer.getData(
-        "taskId"
+    const task =
+    tasks.find(
+        t => t.id == req.params.id
     );
 
-    console.log(
-        "Dropped:",
-        taskId,
-        status
-    );
+    if(!task){
 
-    await moveTask(
-        taskId,
-        status
-    );
+        return res.status(404).json({
+            message:"Task not found"
+        });
 
-}
+    }
+
+    if(!task.comments){
+
+        task.comments = [];
+
+    }
+
+    task.comments.push({
+
+        username:
+        req.body.username,
+
+        text:
+        req.body.text,
+
+        createdAt:
+        new Date().toLocaleString()
+
+    });
+
+    saveTasks(tasks);
+
+    res.json(task);
+
+});
 
 // DELETE TASK
 
 router.delete("/:id", (req, res) => {
 
-    const tasks =
-    getTasks();
+    const tasks = getTasks();
 
     const filteredTasks =
     tasks.filter(
         t => t.id != req.params.id
     );
 
-    saveTasks(
-        filteredTasks
-    );
+    saveTasks(filteredTasks);
 
     res.json({
 

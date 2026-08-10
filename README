@@ -1,0 +1,51 @@
+# TaskFlow 🚀
+
+TaskFlow is a full-stack project management and collaboration platform inspired by Trello and Asana.
+
+## Features
+
+* User Authentication
+* Project Creation & Management
+* Task Creation, Editing & Deletion
+* Task Assignment
+* Task Priorities
+* Due Dates
+* Kanban Board (Todo, In Progress, Done)
+* Team Management
+* Search & Filter Tasks
+* Dashboard Statistics
+* Real-time Updates using Socket.IO
+* JSON-based Data Persistence
+
+## Tech Stack
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Backend
+
+* Node.js
+* Express.js
+* Socket.IO
+
+### Storage
+
+* JSON File Storage
+
+## Installation
+
+```bash
+npm install
+node server/server.js
+```
+
+Open:
+
+http://localhost:5000
+
+## Author
+
+Wishwajith S
