@@ -1,11 +1,11 @@
 {
   "name": "codealpha-taskflow",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
+  "description": "TaskFlow - Task Management Application",
+  "main": "server.js",
+ "scripts": {
+  "start": "node server/server.js"
+},
   "author": "",
   "license": "ISC",
   "keywords": [],
