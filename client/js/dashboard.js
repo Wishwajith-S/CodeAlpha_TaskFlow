@@ -2,7 +2,7 @@ async function loadProjects() {
 
     const projectResponse =
     await fetch(
-        "http://localhost:5000/api/projects"
+        "https://taskflow-backend-tmc5.onrender.com/api/projects"
     );
 
     const projects =
@@ -10,7 +10,7 @@ async function loadProjects() {
 
     const taskResponse =
     await fetch(
-        "http://localhost:5000/api/tasks"
+        "https://taskflow-backend-tmc5.onrender.com/api/tasks"
     );
 
     const tasks =
@@ -139,7 +139,7 @@ async function createProject() {
     ).value;
 
     await fetch(
-        "http://localhost:5000/api/projects",
+        "https://taskflow-backend-tmc5.onrender.com/api/projects",
         {
             method:"POST",
 
@@ -182,7 +182,7 @@ async function deleteProject(id){
     }
 
     await fetch(
-        `http://localhost:5000/api/projects/${id}`,
+        `https://taskflow-backend-tmc5.onrender.com/api/projects/${id}`,
         {
             method:"DELETE"
         }

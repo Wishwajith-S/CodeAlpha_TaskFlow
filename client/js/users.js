@@ -2,7 +2,7 @@ async function loadMembers(){
 
     const response =
     await fetch(
-        "http://localhost:5000/api/users"
+        "https://taskflow-backend-tmc5.onrender.com/api/users"
     );
 
     const users =
@@ -81,7 +81,7 @@ async function addMember(){
     }
 
     await fetch(
-        "http://localhost:5000/api/users",
+        "https://taskflow-backend-tmc5.onrender.com/api/users",
         {
 
             method:"POST",
@@ -116,7 +116,7 @@ async function addMember(){
 async function deleteMember(id){
 
     await fetch(
-        `http://localhost:5000/api/users/${id}`,
+        `https://taskflow-backend-tmc5.onrender.com/api/users/${id}`,
         {
             method:"DELETE"
         }

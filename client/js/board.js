@@ -1,11 +1,11 @@
 const socket = io(
-    "http://localhost:5000"
+    "https://taskflow-backend-tmc5.onrender.com"
 );
 async function loadTeamMembers(){
 
     const response =
     await fetch(
-        "http://localhost:5000/api/users"
+        "https://taskflow-backend-tmc5.onrender.com/api/users"
     );
 
     const users =
@@ -41,7 +41,7 @@ async function loadTasks() {
 
     const response =
     await fetch(
-        "http://localhost:5000/api/tasks"
+        "https://taskflow-backend-tmc5.onrender.com/api/tasks"
     );
     
 ;
@@ -247,7 +247,7 @@ async function createTask() {
     ).value;
 
     await fetch(
-        "http://localhost:5000/api/tasks",
+        "https://taskflow-backend-tmc5.onrender.com/api/tasks",
         {
             method:"POST",
 
@@ -286,7 +286,7 @@ async function createTask() {
 async function moveTask(id,status){
 
     await fetch(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://taskflow-backend-tmc5.onrender.com/api/tasks/${id}`,
         {
             method:"PUT",
 
@@ -340,7 +340,7 @@ async function editTask(id){
     if(dueDate === null) return;
 
     await fetch(
-        `http://localhost:5000/api/tasks/edit/${id}`,
+        `https://taskflow-backend-tmc5.onrender.com/api/tasks/edit/${id}`,
         {
             method:"PUT",
 
@@ -380,7 +380,7 @@ async function deleteTask(id){
     }
 
     await fetch(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://taskflow-backend-tmc5.onrender.com/api/tasks/${id}`,
         {
             method:"DELETE"
         }
